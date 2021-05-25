@@ -6,7 +6,7 @@ import styles from "../styles/Lab.module.css"
 export default function Lab(props) {
     console.log(props);
     return(
-        <Link href={props.path} passHref>
+        <Link href={props.path} >
             <a className={styles.lab}>
                 <span className={styles.image}  style={{backgroundImage: "url(/images/test.png)"}}>
                 </span>
