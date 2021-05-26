@@ -55,7 +55,10 @@ export function getStaticProps() {
       data,
       filePath,
     }
-  })
+  }).filter(post => post.data.type == "blog")
+
 
   return { props: { posts } }
 }
+
+

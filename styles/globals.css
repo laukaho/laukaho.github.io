@@ -472,6 +472,7 @@ h2 {
     background-color: #262c39;
     transition: right 0.2s ease-out;
     z-index: 0;
+    overflow-y: scroll;
   }
 
   .header .right .menu.active{

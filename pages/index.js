@@ -18,8 +18,15 @@ import matter from 'gray-matter'
 import fs from 'fs'
 import path from 'path'
 
-export default function Home({posts}) {
-  console.log(posts)
+export default function Home({labs, latests}) {
+  console.log(labs)
+  console.log(latests)
+
+  var indents = [];
+  for (var i = 0; i < 4 - latests.length; i++) {
+    indents.push(<Card key={i} className="empty"/>);
+  }
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -41,10 +48,10 @@ export default function Home({posts}) {
             <div className="wrap">
               <h1 className="font-md aqua vert-margin">Explore</h1>
               <div className="cards">
-                <Card title="Test" image="url(/images/test.png)" category="App" description="A point-and-click mystery set in the bible belt of Sweden"/>
-                <Card title="Test" image="url(/images/test.png)" category="App" description="A point-and-clic"/>
-                <Card title="Test" image="url(/images/test.png)" category="App" description="A point-and-click mystery set weden"/>
-                <Card title="Test" image="url(/images/test.png)" category="App" description="A point-and-cliclt of Sweden"/>
+                {latests.map((post) => (
+                  <Card key={post.filePath} title="Test" image="url(/images/test.png)" category="App" description="A point-and-click mystery set in the bible belt of Sweden"/>
+                ))}
+                {indents}
               </div>
             </div>
           </div>
@@ -55,7 +62,7 @@ export default function Home({posts}) {
             <div className="wrap">
               <h1 className="font-md aqua vert-margin">Labs</h1>
               <div className="labs">
-                {posts.map((post) => (
+                {labs.map((post) => (
                   <Lab key={post.filePath} post={post} path={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`} />
                 ))}
               </div>
@@ -74,13 +81,26 @@ export function getStaticProps() {
   const posts = postFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
     const { content, data } = matter(source)
-
-    return {
-      content,
-      data,
-      filePath,
-    }
+      return {
+        content,
+        data,
+        filePath,
+      }
   })
 
-  return { props: { posts } }
+  let labs = posts.filter(post => post.data.type == "blog")
+  let latests = posts.filter(post => post.data.type == "product")
+
+  latests.sort((ele1, ele2) => { 
+    if(ele1.data.date > ele2.data.date){
+      return -1;
+    }
+    if(ele1.data.date < ele2.data.date){
+      return 1;
+    }
+    return 0;
+  })
+
+
+  return { props: { labs, latests } }
 }

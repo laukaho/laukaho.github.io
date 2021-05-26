@@ -1,3 +1,5 @@
+import React from "react"
+
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from "../comps/Header"
@@ -6,7 +8,16 @@ import styles from '../styles/Home.module.css'
 
 import Card from "../comps/Card";
 
-export default function Tools() {
+import {POSTS_PATH, postFilePaths} from "../utils/mdxUtils"
+import matter from 'gray-matter'
+import fs from 'fs'
+import path from 'path'
+export default function Tools({posts}) {
+  var indents = [];
+  for (var i = 0; i < 4 - posts.length%4; i++) {
+    indents.push(<Card key={i} className="empty"/>);
+  }
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -24,14 +35,10 @@ export default function Tools() {
                         <h2 className="grey">life is short. don't repeating your works anymore.</h2>
                         <div className="push"></div>
                         <div className="cards">
-                            <Card title="Test" image="url(/images/test.png)" category="Tool"/>
-                            <Card title="Test" image="url(/images/test.png)" category="Tool"/>
-                            <Card title="Test" image="url(/images/test.png)" category="Tool"/>
-                            <Card title="Test" image="url(/images/test.png)" category="Tool"/>
-                            <Card title="Test" image="url(/images/test.png)" category="Tool"/>
-                            <Card title="Test" image="url(/images/test.png)" category="Tool"/>
-                            <Card className="empty"/>
-                            <Card className="empty"/>
+                          {posts.map((post) => (
+                            <Card key={post.filePath} title="Test" image="url(/images/test.png)" category="App" description="A point-and-click mystery set in the bible belt of Sweden"/>
+                          ))}
+                          {indents}
                         </div>
                     </div>
                 </div>
@@ -42,3 +49,30 @@ export default function Tools() {
     </div>
   )
 }
+
+export function getStaticProps() {
+
+  var posts = postFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
+    const { content, data } = matter(source)
+      return {
+        content,
+        data,
+        filePath,
+      }
+  }).filter(post => post.data.category == "tool")
+
+  
+  posts.sort((ele1, ele2) => { 
+    if(ele1.data.date > ele2.data.date){
+      return -1;
+    }
+    if(ele1.data.date < ele2.data.date){
+      return 1;
+    }
+    return 0;
+  })
+
+  return { props: { posts } }
+}
+

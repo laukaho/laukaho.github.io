@@ -36,7 +36,7 @@ export default function Banner() {
         if (!pause && slider) {
           slider.next()
         }
-      }, 2000)
+      }, 10000)
       return () => {
         clearInterval(timer.current)
       }
