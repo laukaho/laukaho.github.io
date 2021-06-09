@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "build": "next build && next export"
+    "static": "next build && next export && touch ./out/.nojekyll && echo 'kaholau.com\r\nwww.kaholau.com' > ./out/CNAME"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
