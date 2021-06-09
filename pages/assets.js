@@ -4,7 +4,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Header from "../comps/Header"
 import Footer from "../comps/Footer"
-import styles from '../styles/Home.module.css'
 
 import Card from "../comps/Card";
 
@@ -20,14 +19,14 @@ export default function Assets({posts}) {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Ka Ho Lau</title>
         <meta name="description" content="KaHoLau, games, develoepr, engineer, computer graphic, app, web, 3d, 2d" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <Header />
-        <main className={styles.main}>
+        <main className="main">
             <div className="placeholder"></div>
             <div className="section">
                 <div className="container">

@@ -1,17 +1,16 @@
 /******lab*********/
 
 .lab {
-	color: #989c9b;
 	display: flex;
 	flex-direction: row-reverse;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #343944;
 	margin-bottom: 25px;
 	cursor: pointer;
+	align-items: center;
 }
 
 .lab:hover {
-	color: #d6dde9;
 	transform: scale(1.01);
 	transition: all 0.1s ease-in;
 }
@@ -33,9 +32,7 @@
 }
 
 .lab .date {
-	font-size: 12px;
-	float: right;
-	color: #989c9b;
+	font-size: 14px;
 	font-weight: normal;
 	font-style: italic;
 	display: block;
@@ -43,10 +40,9 @@
 }
 
 .lab .title {
-	font-size: 20px;
 	margin-bottom: 10px;
 	font-weight: bold;
-	color: #ffffff;
+	/* color: #ffffff; */
 	display: block;
 }
 

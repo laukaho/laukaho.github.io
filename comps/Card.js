@@ -1,18 +1,22 @@
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./globalStyles";
+import styles from "../styles/Card.module.css"
+import { lightTheme, darkTheme } from "./Theme"
 
 export default function Card(props) {
-
+    
     return(
-        <a className={`card ${props.className}`}>
-            <div className="image" style={{backgroundImage: props.image}}>
+        <a className={`${styles.card} ${props.className == "empty" ? styles.empty:""}`}>
+            <div className={styles.image} style={{backgroundImage: props.image}}>
             </div>
-            <div className="detail">
-                <div className="title font-md">
+            <div className={styles.detail}>
+                <div className={`${styles.title} font-md`}>
                     {props.title}
                 </div>
-                <div className="description">
+                <div className={styles.description}>
                     {props.description}
                 </div>
-                <div className="category">
+                <div className={styles.category}>
                     {props.category}
                 </div>
             </div>
