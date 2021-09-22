@@ -1,34 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a href="https://chronoblog.now.sh" target="_blank">
+<img src="https://github.com/Chronoblog/gatsby-theme-chronoblog/raw/master/assets/st-banner-chronoblog.png" alt="Chronoblog - Gatsby Theme" />
+</a>
 
-## Getting Started
+<h1 align="center">
+Gatsby Starter Chronoblog - starter for Chronoblog Gatsby Theme
+</h1>
 
-First, run the development server:
+[![npm](https://img.shields.io/npm/v/gatsby-theme-chronoblog?color=brightgreen)](https://www.npmjs.com/package/gatsby-theme-chronoblog) [![node](https://img.shields.io/node/v/gatsby-theme-chronoblog)](https://www.npmjs.com/package/gatsby-theme-chronoblog)
 
-```bash
-npm run dev
-# or
-yarn dev
+This starter is the standard way to start a Chronoblog Gatsby Theme website.
+
+What is a Chronoblog?
+
+> Chronoblog is a Gatsby js theme specifically designed to create a personal website. The main idea of ​​Chronoblog is to allow you not only to write a personal blog but also to keep a record of everything important that you have done.
+
+Read more about Chronoblog Gatsby Theme here: [github.com/Chronoblog/gatsby-theme-chronoblog](https://github.com/Chronoblog/gatsby-theme-chronoblog)
+
+**Live demo of this starter: [https://chronoblog.now.sh](https://chronoblog.now.sh/)**
+
+## Features
+
+- Specially designed to create a personal website
+- A universal Feed where you can display any type of content. Not only blog posts, but also links to projects, podcasts, videos, etc.
+- Search and Tags for organizing content
+- A simple change of primary and secondary colors of the site, fonts, radius of curvature of elements, etc (thanks to Theme UI theming)
+- Clean and Universal UI
+- Mobile friendly, all elements and custom images are adapted to any screen
+- Light/Dark mode
+- Easy customization of icons and links to your social networks
+- MDX for the main menu of the site, footer and other elements of the site
+- MDX for pages and content
+- Code syntax highlighting
+- SEO (OpenGraph and Twitter) out of the box with default settings that make sense (thanks to React Helmet)
+
+## How to start using Chronoblog Starter
+
+If you have `gatsby-cli`:
+
+```sh
+gatsby new chronoblog-site https://github.com/Chronoblog/gatsby-starter-chronoblog
+
+cd chronoblog-site
+
+gatsby develop
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or using git clone:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```sh
+git clone git@github.com:Chronoblog/gatsby-starter-chronoblog.git chronoblog-site
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+cd chronoblog-site
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+npm i
 
-## Learn More
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+Your site is now running at http://localhost:8000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploying
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Deploying to ZEIT Now
 
-## Deploy on Vercel
+Gatsby Docs: [www.gatsbyjs.org/docs/deploying-to-zeit-now](https://www.gatsbyjs.org/docs/deploying-to-zeit-now/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Quick Deployment:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/Chronoblog/gatsby-starter-chronoblog)
+
+### Deploying to Netlify
+
+Gatsby Docs: [www.gatsbyjs.org/docs/deploying-to-netlify](https://www.gatsbyjs.org/docs/deploying-to-netlify/)
+
+Quick Deployment:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Chronoblog/gatsby-starter-chronoblog)
+
+## More information
+
+For complete information, go to the main repository: [github.com/ganevru/gatsby-theme-chronoblog](https://github.com/Chronoblog/gatsby-theme-chronoblog)

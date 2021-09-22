@@ -1,27 +1,75 @@
 {
-  "name": "kaholau",
-  "version": "0.1.0",
+  "name": "chronoblog",
+  "version": "1.0.0",
   "private": true,
+  "description": "gatsby-starter-chronoblog",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Ivan Ganev <ganevio92@gmail.com>",
   "scripts": {
-    "dev": "next dev",
-    "start": "next start",
-    "static": "next build && next export && touch ./out/.nojekyll && echo 'kaholau.com\r\nwww.kaholau.com' > ./out/CNAME"
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "start": "gatsby develop"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "impliedStrict": true,
+        "jsx": true
+      },
+      "ecmaVersion": 2019,
+      "sourceType": "module",
+      "useJSXTextNode": true
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx",
+            "md",
+            "mdx"
+          ]
+        }
+      },
+      "react": {
+        "version": "detect"
+      }
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "extends": [
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "prettier/prettier": "warn"
+    }
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.35",
-    "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "gray-matter": "^4.0.3",
-    "keen-slider": "^5.4.1",
-    "next": "10.2.0",
-    "next-mdx-remote": "^3.0.2",
-    "react": "17.0.2",
-    "react-cookie": "^4.0.3",
-    "react-dom": "17.0.2",
-    "react-magnific-popup": "^1.0.1",
-    "react-responsive-carousel": "^3.2.18",
-    "simple-react-lightbox": "^3.6.6",
-    "styled-components": "^5.3.0"
+    "gatsby": "^2.23.3",
+    "gatsby-plugin-disqus": "^1.1.4",
+    "gatsby-plugin-google-analytics": "^2.1.23",
+    "gatsby-plugin-manifest": "^2.4.11",
+    "gatsby-plugin-sitemap": "^2.2.21",
+    "gatsby-theme-chronoblog": "^0.26.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2"
+  },
+  "engines": {
+    "node": ">=12.21.0"
   }
 }
