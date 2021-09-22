@@ -1,33 +1,33 @@
 module.exports = {
   siteMetadata: {
-    siteTitle: 'Chronoblog Starter',
-    siteDescription: 'Starter for Gatsby Theme Chronoblog',
+    siteTitle: 'Ka Ho, LAU',
+    siteDescription: 'Blogs, Tutorials, Dev Logs and Projects from  Ka Ho',
     siteImage: '/banner.png', // main image of the site for metadata
-    siteUrl: 'https://chronoblog.now.sh/',
+    siteUrl: 'https://kaholau.com/',
     pathPrefix: '/',
     siteLanguage: 'en',
     ogLanguage: `en_US`,
-    author: 'Site Author', // for example - 'Ivan Ganev'
-    authorDescription: 'short author description', // short text about the author
+    author: 'Ka Ho, LAU', // for example - 'Ivan Ganev'
+    authorDescription: 'Tech Enthusiast', // short text about the author
     avatar: '/avatar.jpg',
     twitterSite: '', // website account on twitter
     twitterCreator: '', // creator account on twitter
     social: [
       {
         icon: `at`,
-        url: `mailto:mymail@mail.com`,
+        url: `kaholau.dev@gmail.com`,
       },
       {
         icon: `twitter`,
-        url: `https://twitter.com/ganevru`,
+        url: `https://twitter.com/kaholau_dev`,
       },
       {
         icon: `github`,
-        url: `https://github.com/Chronoblog/gatsby-theme-chronoblog`,
+        url: `https://github.com/laukaho`,
       },
       {
-        icon: `node-js`,
-        url: `https://www.npmjs.com/package/gatsby-theme-chronoblog`,
+        icon: `patreon`,
+        url: `https://www.patreon.com/kaholau`,
       },
     ],
   },
