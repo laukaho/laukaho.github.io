@@ -10,14 +10,24 @@
   overflow: hidden;
 }
 
+.avatar{
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 10px auto;
+}
+
+.avatar img{
+  border-radius: 150px;
+}
+
+.social{
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
   }
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
