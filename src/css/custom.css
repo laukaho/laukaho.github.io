@@ -18,7 +18,7 @@
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #000000; /* White */
+  --ifm-color-primary: #a1a1a1; /* White */
   --ifm-color-primary-dark: #000000; /* Light Gray */
   --ifm-color-primary-darker: #000000; /* Slightly Darker Gray */
   --ifm-color-primary-darkest: #000000; /* Darker Gray */
