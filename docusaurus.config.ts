@@ -87,7 +87,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       copyright: `Copyright © ${new Date().getFullYear()} Lau Ka Ho, Inc. Built with Docusaurus.`,
     },
     prism: {
