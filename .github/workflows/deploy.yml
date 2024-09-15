@@ -17,9 +17,21 @@ jobs:
           node-version: 'v18.16.0'
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Run deployment script
         run: |
-          chmod +x ./deploy.sh  # Make sure the script is executable
-          ./deploy.sh
+            npm install
+            npm run clear
+            npm run build
+
+      - uses: actions/checkout@v4
+        with:
+            ref: gh-pages
+
+      - name: Commit
+        run: |
+          git config --local user.email "kaholau.dev@gmail.com"
+          git config --local user.name "github-actions[bot]"
+          cp -r ./build/* .
+          git add .
+          git commit -m "[Automation] publish gh-pages"
+          git push
+
