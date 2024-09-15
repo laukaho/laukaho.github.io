@@ -1,7 +1,10 @@
 npm run clear
 npm run build
-git checkout -b gh-pages || git checkout gh-pages
+
+git stash
 git pull origin gh-pages --rebase
+git stash pop
+git checkout gh-pages
 
 cp -r ./build/* .
 git add .
