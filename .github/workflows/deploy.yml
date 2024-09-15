@@ -21,16 +21,31 @@ jobs:
             npm install
             npm run clear
             npm run build
+      
+      - name: Save build output
+        run: |
+          mkdir -p ../build-output
+          cp -r ./build/* ../build-output/
+          
+      - name: Verify build-output folder
+        run: |
+            ls -la ../build-output
 
       - uses: actions/checkout@v4
         with:
             ref: gh-pages
 
+      - name: Copy build files to gh-pages branch
+        run: |
+            cp -r ../build-output/* .
+
+      - name: Show changes
+        run: ls -la
+
       - name: Commit
         run: |
           git config --local user.email "kaholau.dev@gmail.com"
           git config --local user.name "github-actions[bot]"
-          cp -r ./build/* .
           git add .
           git commit -m "[Automation] publish gh-pages"
           git push
