@@ -41,9 +41,11 @@ async function retrivePageContentAsync(page) {
     }
 }
 
-function saveMarkdown(page, outputFolder) {
+function saveMarkdown(page, outputFolder, type) {
+    console.log("============")
+    console.log("saving markdown");
     let title = page['title'];
-    
+
     const slug = page['slug']
     const pageId = page["page_id"];
     const publishDate = page['publish_date'];
@@ -56,12 +58,21 @@ function saveMarkdown(page, outputFolder) {
         filename: ${filename}
     `);
 
-    let content = "---\n" +
+    let content = "";
+    
+    if(type == 'blog'){
+        content +=  "---\n" +
         `${slug == null || slug == "" ? "" : "slug: " + slug + '\n'}`
         + `title: ${title}
 authors: [kaholau]
 tags: [${tags.join(',')}]
 ---`;
+    }else{
+        content += `# ${title}\n`
+    }
+    console.log("markdown meta: ");
+    console.log(content);
+
     content += markdown
 
     const fullPath = `${outputFolder}/${filename}`;
@@ -76,13 +87,27 @@ tags: [${tags.join(',')}]
 }
 
 
-function fileExists(filePath) {
-    try {
-        return fs.existsSync(filePath);
-    } catch (err) {
-        console.error('An error occurred:', err);
-        return false;
+
+function fileExistsRecursively(directory, filename) {
+    const files = fs.readdirSync(directory);
+
+    for (let file of files) {
+        const fullPath = path.join(directory, file);
+        const stat = fs.statSync(fullPath);
+
+        if (stat.isDirectory()) {
+            // Recursively check within the subdirectory
+            if (fileExistsRecursively(fullPath, filename)) {
+                return true;
+            }
+        } else if (file === filename) {
+            // Return true if the file is found
+            return true;
+        }
     }
+
+    // Return false if the file is not found in this directory or its subdirectories
+    return false;
 }
 
 //main
@@ -156,7 +181,7 @@ axios.post(`https://api.notion.com/v1/databases/${argv.databaseId}/query`, data,
     headers: header
 }).then(response => {
     const results = response.data['results']
-    if(response.data['has_more']){
+    if (response.data['has_more']) {
         console.log(`[Notion] has_more: ${has_more}`);
         console.log(`! need to further handle, this script not handlling this case at this moment`);
     }
@@ -166,16 +191,16 @@ axios.post(`https://api.notion.com/v1/databases/${argv.databaseId}/query`, data,
 
     if (!argv.force) {
         console.log("check if markdown exists");
-        const checkFolder = argv.type == 'blog' ? "./blog" : "./note";
-        pages = pages.filter(page => !fileExists(`${checkFolder}/${page['filename']}`));
+        const checkFolder = argv.type == 'blog' ? "./blog" : "./docs";
+        pages = pages.filter(page => !fileExistsRecursively(checkFolder, `${page['filename']}`));
     }
 
     return pages;
 }).then(pages => { //Save all markdown
-    pages.map(page => { saveMarkdown(page, argv.outputFolder) });
+    pages.map(page => { saveMarkdown(page, argv.outputFolder, argv.type) });
 
 }).catch(error => {
     console.error('Error:', error);
-}).finally(()=>{
+}).finally(() => {
     console.log("==== finish ====")
 });
