@@ -156,6 +156,10 @@ axios.post(`https://api.notion.com/v1/databases/${argv.databaseId}/query`, data,
     headers: header
 }).then(response => {
     const results = response.data['results']
+    if(response.data['has_more']){
+        console.log(`[Notion] has_more: ${has_more}`);
+        console.log(`! need to further handle, this script not handlling this case at this moment`);
+    }
     return results
 }).then(async page_infos => { //Retrive page and convert to markdown
     let pages = await Promise.all(page_infos.map(retrivePageContentAsync));
