@@ -39,13 +39,22 @@ async function retrivePageContentAsync(page) {
 
 function saveMarkdown(page, outputFolder) {
     let title = page['title'];
-    title = title.toLowerCase().replace(' ', '-');
+    const path_title = title.toLowerCase().replace(' ', '-');
     const slug = page['slug']
     const pageId = page["page_id"];
     const publishDate = page['publish_date'];
     const markdown = page["markdown"];
+    const tags = page['tags']
+    
+    let content = "---\n" + 
+`${slug == null || slug == "" ? "":"slug: " + slug + '\n'}`
++`title: ${title}
+authors: [kaholau]
+tags: [${tags.join(',')}]
+---`;
+    content += markdown
 
-    const filename = `${publishDate}-${title}.md`;
+    const filename = `${publishDate}-${path_title}.md`;
     const fullPath = `${outputFolder}/${filename}`;
 
     //Save file
@@ -53,7 +62,7 @@ function saveMarkdown(page, outputFolder) {
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
-    fs.writeFileSync(fullPath, markdown);
+    fs.writeFileSync(fullPath, content);
     console.log(`Markdown saved to ${fullPath}`);
 }
 
