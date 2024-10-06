@@ -23,14 +23,18 @@ async function retrivePageContentAsync(page) {
         const tags = props['tags']['multi_select'].map(tag => { return tag['name'] });
         const slug = props['slug']['rich_text'].map(rich_text => { return rich_text['plain_text'] }).join("");
         const title = props['title']['title'].map(title => { return title['plain_text'] }).join("");
+        const publishDate = props['publish_date']['date'] != null ? props['publish_date']['date']['start'] : null;
+        const path_title = title.toLowerCase().replace(' ', '-');
+        const filename = `${publishDate}-${path_title}.md`;
         return {
             "title": title,
             "page_id": pageId,
             "slug": slug,
             "publish": props['publish']['checkbox'],
-            "publish_date": props['publish_date']['date'] != null ? props['publish_date']['date']['start'] : null,
+            "publish_date": publishDate,
             "tags": tags,
-            "markdown": mdString.parent
+            "markdown": mdString.parent,
+            "filename": filename
         };
     } catch (error) {
         console.error('Error:', error);
@@ -39,22 +43,27 @@ async function retrivePageContentAsync(page) {
 
 function saveMarkdown(page, outputFolder) {
     let title = page['title'];
-    const path_title = title.toLowerCase().replace(' ', '-');
+    
     const slug = page['slug']
     const pageId = page["page_id"];
     const publishDate = page['publish_date'];
     const markdown = page["markdown"];
     const tags = page['tags']
-    
-    let content = "---\n" + 
-`${slug == null || slug == "" ? "":"slug: " + slug + '\n'}`
-+`title: ${title}
+    const filename = page['filename'];
+
+    console.log(`process page: 
+        page_id: ${pageId} 
+        filename: ${filename}
+    `);
+
+    let content = "---\n" +
+        `${slug == null || slug == "" ? "" : "slug: " + slug + '\n'}`
+        + `title: ${title}
 authors: [kaholau]
 tags: [${tags.join(',')}]
 ---`;
     content += markdown
 
-    const filename = `${publishDate}-${path_title}.md`;
     const fullPath = `${outputFolder}/${filename}`;
 
     //Save file
@@ -67,6 +76,16 @@ tags: [${tags.join(',')}]
 }
 
 
+function fileExists(filePath) {
+    try {
+        return fs.existsSync(filePath);
+    } catch (err) {
+        console.error('An error occurred:', err);
+        return false;
+    }
+}
+
+//main
 const token = process.env.NOTION_AUTH_TOKEN;
 
 const notion = new Client({
@@ -93,7 +112,13 @@ const argv = yargs
         alias: 't',
         description: 'page type',
         type: 'string',
-        default: "blog"
+        default: "blog" // blog/note
+    })
+    .option('force', {
+        alias: 'f',
+        description: 'set to true if not skipping pulled page',
+        type: 'boolean',
+        default: false
     })
     .help()
     .alias('help', 'h')
@@ -133,15 +158,20 @@ axios.post(`https://api.notion.com/v1/databases/${argv.databaseId}/query`, data,
     const results = response.data['results']
     return results
 }).then(async page_infos => { //Retrive page and convert to markdown
-    var pages = await Promise.all(page_infos.map(retrivePageContentAsync));
+    let pages = await Promise.all(page_infos.map(retrivePageContentAsync));
+
+    if (!argv.force) {
+        console.log("check if markdown exists");
+        const checkFolder = argv.type == 'blog' ? "./blog" : "./note";
+        pages = pages.filter(page => !fileExists(`${checkFolder}/${page['filename']}`));
+    }
+
     return pages;
 }).then(pages => { //Save all markdown
     pages.map(page => { saveMarkdown(page, argv.outputFolder) });
+
 }).catch(error => {
     console.error('Error:', error);
+}).finally(()=>{
+    console.log("==== finish ====")
 });
-
-
-
-
-
