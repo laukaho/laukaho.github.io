@@ -70,7 +70,6 @@ const config: Config = {
     navbar: {
       title: "Ka Ho's Personal Site",
       items: [
-        {to: '/blog', label: 'Blog', position: 'right'},
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
@@ -86,7 +85,7 @@ const config: Config = {
     },
     footer: {
       style: 'light',
-      copyright: `Copyright © ${new Date().getFullYear()} Lau Ka Ho, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Lau Ka Ho, Inc.`,
     },
     prism: {
       theme: prismThemes.github,
