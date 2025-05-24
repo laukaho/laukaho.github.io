@@ -70,12 +70,13 @@ const config: Config = {
     navbar: {
       title: "Ka Ho's Personal Site",
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'right',
-          label: 'Notes',
-        },
+        // {to: '/blog', label: 'Blog', position: 'right'},
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'tutorialSidebar',
+        //   position: 'right',
+        //   label: 'Notes',
+        // },
         {
           href: 'https://github.com/laukaho/laukaho.github.io',
           label: 'GitHub',
