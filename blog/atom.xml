@@ -2,23 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://kaholau.com/blog</id>
     <title>Ka Ho Blog</title>
-    <updated>2019-05-28T00:00:00.000Z</updated>
+    <updated>2025-06-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://kaholau.com/blog"/>
     <subtitle>Ka Ho Blog</subtitle>
     <icon>https://kaholau.com/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>https://kaholau.com/blog/first-blog-post</id>
-        <link href="https://kaholau.com/blog/first-blog-post"/>
-        <updated>2019-05-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet...]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet...</p>
-<p>...consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
+        <title type="html"><![CDATA[Vibdar Launch]]></title>
+        <id>https://kaholau.com/blog/vibdar-launch</id>
+        <link href="https://kaholau.com/blog/vibdar-launch"/>
+        <updated>2025-06-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🎉 Vibdar Has Launched! 🎶]]></summary>
+        <content type="html"><![CDATA[<p>🎉 <strong>Vibdar Has Launched!</strong> 🎶</p>
+<p>After months of building, testing, and playlist-vibing, I'm thrilled to announce the public launch of <strong><a href="https://vibdar.com/" target="_blank" rel="noopener noreferrer">Vibdar.com</a></strong> — a community-powered platform to discover and share Spotify playlists by vibe, not algorithm.</p>
+<p>In a world where music discovery is dominated by opaque algorithms and walled-off apps, Vibdar flips the script. No login required. No guessing games. Just vibes — curated by real people who love music.</p>
+<p>Vibdar is built on a simple idea:</p>
+<blockquote>
+<p><em>Good music shouldn’t be hidden behind follower counts or algorithmic silos.</em></p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-join-the-movement">🔥 Join the Movement<a href="https://kaholau.com/blog/vibdar-launch#-join-the-movement" class="hash-link" aria-label="Direct link to 🔥 Join the Movement" title="Direct link to 🔥 Join the Movement">​</a></h3>
+<p>Vibdar is live on <strong><a href="https://www.producthunt.com/products/vibdar-share-playlist-with-the-world" target="_blank" rel="noopener noreferrer">Product Hunt</a></strong> and I’d love your support!<br>
+<!-- -->Try it out. Share your favorite playlists. Give feedback. Help shape the future of music discovery.</p>
+<p>Let’s vibe together — at <a href="https://vibdar.com/" target="_blank" rel="noopener noreferrer">vibdar.com</a></p>
+<hr>
+<p>📣 <strong>P.S.</strong> If you’ve got a killer playlist, tag it and submit it. You might just help someone find their new favorite soundtrack.</p>]]></content>
         <author>
             <name>Ka Ho, Lau</name>
             <uri>https://github.com/laukaho</uri>
         </author>
-        <category label="facebook" term="facebook"/>
+        <category label="vibdar" term="vibdar"/>
+        <category label="launch" term="launch"/>
+        <category label="announcement" term="announcement"/>
     </entry>
 </feed>

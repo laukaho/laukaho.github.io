@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksource=self.webpackChunksource||[]).push([[121],{8070:a=>{a.exports=JSON.parse('{"tags":[{"label":"vibdar","permalink":"/blog/tags/vibdar","count":1},{"label":"launch","permalink":"/blog/tags/launch","count":1},{"label":"announcement","permalink":"/blog/tags/announcement","count":1}]}')}}]);
