@@ -29,7 +29,7 @@ jobs:
       - name: Pull content from Notion
         env:
           NOTION_DB_ID: ${{ inputs.notion_db_id }}
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_AUTH_TOKEN: ${{ secrets.NOTION_AUTH_TOKEN }}
         run: npm run pull-content -- --db $NOTION_DB_ID --t blog --o ./blog -f
 
       - name: Check for changes
