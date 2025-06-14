@@ -31,15 +31,5 @@
             <category>launch</category>
             <category>announcement</category>
         </item>
-        <item>
-            <title><![CDATA[Test1]]></title>
-            <link>https://kaholau.com/blog/2024/10/06/test1</link>
-            <guid>https://kaholau.com/blog/2024/10/06/test1</guid>
-            <pubDate>Sun, 06 Oct 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[asdasdas]]></description>
-            <content:encoded><![CDATA[<p>asdasdas</p>
-<p>asdas</p>]]></content:encoded>
-            <category>design</category>
-        </item>
     </channel>
 </rss>

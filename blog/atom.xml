@@ -34,18 +34,4 @@
         <category label="launch" term="launch"/>
         <category label="announcement" term="announcement"/>
     </entry>
-    <entry>
-        <title type="html"><![CDATA[Test1]]></title>
-        <id>https://kaholau.com/blog/2024/10/06/test1</id>
-        <link href="https://kaholau.com/blog/2024/10/06/test1"/>
-        <updated>2024-10-06T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[asdasdas]]></summary>
-        <content type="html"><![CDATA[<p>asdasdas</p>
-<p>asdas</p>]]></content>
-        <author>
-            <name>Ka Ho, Lau</name>
-            <uri>https://github.com/laukaho</uri>
-        </author>
-        <category label="design" term="design"/>
-    </entry>
 </feed>
