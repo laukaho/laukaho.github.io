@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksource=self.webpackChunksource||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Vibdar Launch","permalink":"/blog/vibdar-launch","unlisted":false,"date":"2025-06-09T00:00:00.000Z"},{"title":"Test1","permalink":"/blog/2024/10/06/test1","unlisted":false,"date":"2024-10-06T00:00:00.000Z"}]}')}}]);
