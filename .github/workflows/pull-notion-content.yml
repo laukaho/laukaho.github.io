@@ -1,0 +1,51 @@
+name: Pull Notion Content
+
+on:
+  workflow_dispatch:
+    inputs:
+      notion_db_id:
+        description: 'Notion Database ID'
+        required: false
+        default: '117826887709806a8177df4ee70f8753'
+        type: string
+
+jobs:
+  pull-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Pull content from Notion
+        env:
+          NOTION_DB_ID: ${{ inputs.notion_db_id }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: npm run pull-content -- --db $NOTION_DB_ID --t blog --o ./blog -f
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "hasChanges=true" >> $GITHUB_OUTPUT
+          else
+            echo "hasChanges=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if changes exist
+        if: steps.changes.outputs.hasChanges == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "Update content from Notion"
+          git push

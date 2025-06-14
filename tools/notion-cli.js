@@ -23,7 +23,8 @@ async function retrivePageContentAsync(page) {
         const tags = props['tags']['multi_select'].map(tag => { return tag['name'] });
         const slug = props['slug']['rich_text'].map(rich_text => { return rich_text['plain_text'] }).join("");
         const title = props['title']['title'].map(title => { return title['plain_text'] }).join("");
-        const publishDate = props['publish_date']['date'] != null ? props['publish_date']['date']['start'] : null;
+        const rawDate = props['publish_date']['date']?.start;
+        const publishDate = rawDate ? new Date(rawDate).toISOString().split('T')[0] : null;
         const path_title = title.toLowerCase().replace(' ', '-');
         const filename = `${publishDate}-${path_title}.md`;
         return {
