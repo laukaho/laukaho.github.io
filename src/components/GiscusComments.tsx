@@ -5,10 +5,10 @@ export default function GiscusComments() {
   return (
     <Giscus
       id="comments"
-      repo="OWNER/REPO"
-      repoId="REPO_ID"
+      repo="laukaho/laukaho.github.io"
+      repoId="MDEwOlJlcG9zaXRvcnkzNzU0Mzc0NTE="
       category="General"
-      categoryId="CATEGORY_ID"
+      categoryId="DIC_kwDOFmC4i84Crkwm"
       mapping="pathname"
       reactionsEnabled="1"
       emitMetadata="0"
