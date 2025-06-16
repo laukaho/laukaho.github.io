@@ -31,3 +31,8 @@
 [data-theme='dark'] a{
   color:#FFF;
 }
+
+/* Giscus comments */
+.giscus {
+  margin-top: 2rem;
+}
