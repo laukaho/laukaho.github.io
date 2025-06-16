@@ -78,7 +78,7 @@ const config: Config = {
         //   label: 'Notes',
         // },
         {
-          href: 'https://github.com/laukaho/laukaho.github.io',
+          href: 'https://github.com/laukaho/',
           label: 'GitHub',
           position: 'right',
         },
