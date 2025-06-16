@@ -9,7 +9,7 @@ export default function GiscusComments() {
       repoId="MDEwOlJlcG9zaXRvcnkzNzU0Mzc0NTE="
       category="General"
       categoryId="DIC_kwDOFmC4i84Crkwm"
-      mapping="pathname"
+      mapping="url"
       reactionsEnabled="1"
       emitMetadata="0"
       inputPosition="bottom"
