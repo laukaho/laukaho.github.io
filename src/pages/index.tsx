@@ -33,6 +33,9 @@ function HomepageHeader() {
           <a href="https://www.patreon.com/kaholau" target="_blank" rel="noopener noreferrer">
             <i className="fa-brands fa-patreon fa-xl"></i>
           </a>
+          <a href="https://buymeacoffee.com/kaholau" target="_blank" rel="noopener noreferrer">
+            <i className="fa-solid fa-mug-saucer fa-xl"></i>
+          </a>
         </Heading>
       </div>
     </header>
