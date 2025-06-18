@@ -70,7 +70,7 @@ const config: Config = {
     navbar: {
       title: "Ka Ho's Personal Site",
       items: [
-        {to: '/blog', label: 'Blog', position: 'right'},
+        // {to: '/blog', label: 'Blog', position: 'right'},
         // {
         //   type: 'docSidebar',
         //   sidebarId: 'tutorialSidebar',
