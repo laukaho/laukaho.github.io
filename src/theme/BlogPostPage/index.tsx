@@ -15,6 +15,7 @@ import ContentVisibility from '@theme/ContentVisibility';
 import type {Props} from '@theme/BlogPostPage';
 import type {BlogSidebar} from '@docusaurus/plugin-content-blog';
 import GiscusComments from '@site/src/components/GiscusComments';
+import BuyMeACoffee from '@site/src/components/BuyMeACoffee';
 
 function BlogPostPageContent({
   sidebar,
@@ -49,6 +50,8 @@ function BlogPostPageContent({
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
       )}
+
+      <BuyMeACoffee />
 
       <GiscusComments />
     </BlogLayout>
