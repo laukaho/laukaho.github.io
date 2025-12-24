@@ -12,7 +12,7 @@ const FeatureList: FeatureItem[] = [
     title: 'About Me',
     description: (
       <>
-        Tech enthusiast with can-do attitude. Support me in <a className={styles.link} href="https://www.patreon.com/kaholau" target="_blank" rel="noopener noreferrer">Patreon</a> or
+        Tech enthusiast with can-do attitude. <a className={styles.link} href="https://buymeacoffee.com/kaholau" target="_blank" rel="noopener noreferrer">Buy me a coffee</a> or
          give me a star on <a className={styles.link} href="https://github.com/laukaho/" target="_blank" rel="noopener noreferrer">GitHub</a>
       </>
     ),

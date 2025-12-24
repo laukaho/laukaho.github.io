@@ -27,12 +27,6 @@ function HomepageHeader() {
           <a href="https://github.com/laukaho/" target="_blank" rel="noopener noreferrer">
             <i className="fa-brands fa-github fa-xl" ></i>
           </a>
-          <a href="https://x.com/kaholau_dev" target="_blank" rel="noopener noreferrer">
-            <i className="fa-brands fa-x-twitter fa-xl" ></i>
-          </a>
-          <a href="https://www.patreon.com/kaholau" target="_blank" rel="noopener noreferrer">
-            <i className="fa-brands fa-patreon fa-xl"></i>
-          </a>
           <a href="https://buymeacoffee.com/kaholau" target="_blank" rel="noopener noreferrer">
             <i className="fa-solid fa-mug-saucer fa-xl"></i>
           </a>
